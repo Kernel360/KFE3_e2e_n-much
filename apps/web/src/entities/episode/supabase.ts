@@ -1,4 +1,3 @@
-import { StoryItem } from 'src/shared/utils/mypage/storyFilters';
 import { createClient } from '../../shared/supabase/client/client';
 
 const supabase = createClient();
@@ -205,59 +204,4 @@ export async function getUserStories(buyer_id: string) {
   }
 
   return data;
-}
-
-// 마이페이지 에피소드 삭제 예정
-export async function getUserStoriesClient(): Promise<StoryItem[]> {
-  const supabase = createClient();
-
-  const {
-    data: { user },
-    error: authError
-  } = await supabase.auth.getUser();
-
-  console.log('Auth 확인:', { userId: user?.id, authError });
-
-  if (authError || !user) {
-    throw new Error('로그인된 사용자가 없습니다');
-  }
-
-  const { data, error } = await supabase
-    .from('episodes')
-    .select(
-      `
-      episode_id,
-      title,
-      description,
-      created_at,
-      status,
-      bid_point,
-      auctions!inner(
-        auction_id,
-        title,
-        status,
-        end_time
-      )
-      `
-    )
-    .eq('buyer_id', user.id)
-    .order('created_at', { ascending: false });
-
-  if (error) {
-    console.error('getUserStoriesClient 에러:', error);
-    throw new Error('DB: 사용자 스토리 목록 조회 에러');
-  }
-
-  const mappedData = (data || []).map((item) => ({
-    id: item.episode_id,
-    episode_id: item.episode_id,
-    title: item.title,
-    description: item.description,
-    created_at: item.created_at,
-    status: item.status || '',
-    bid_point: item.bid_point,
-    auctions: item.auctions
-  }));
-
-  return mappedData;
 }

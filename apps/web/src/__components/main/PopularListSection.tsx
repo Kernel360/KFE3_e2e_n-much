@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { fetchSortedAuctions } from 'src/entities/auction/serverActions';
 
 import PopularAuctionCard from './PopularAuctionCard';
-import PageTitle from '../common/ui/PageTitle';
+import PageTitle from '../../shared/ui/PageTitle';
 import { SortedAuctionItemType } from 'src/entities/auction/types';
 
 const PopularListSection = async () => {
@@ -10,7 +10,7 @@ const PopularListSection = async () => {
 
   if (!popularAuctions || popularAuctions.length === 0) {
     return (
-      <div className="flex h-50 w-full items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-sm text-gray-500">
+      <div className="h-50 flex w-full items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-sm text-gray-500">
         아직 등록된 정보가 없어요
       </div>
     );
@@ -20,7 +20,7 @@ const PopularListSection = async () => {
     <div className="mt-8">
       <div className="mb-4 flex items-center justify-between">
         <PageTitle>인기 경매</PageTitle>
-        <Link href="/auctions?order=favorites" className="cursor-pointer text-sm text-(--color-accent)">
+        <Link href="/auctions?order=favorites" className="text-(--color-accent) cursor-pointer text-sm">
           더보기
         </Link>
       </div>

@@ -8,7 +8,7 @@ import AuctionCard from '../common/AuctionCard';
 import { AuctionRow } from 'src/shared/supabase/types';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
-import { LoadingSpinner } from '../auth/LoadingSpinner';
+import { LoadingSpinner } from '../../features/auth/LoadingSpinner';
 
 interface EpisodeCount {
   episodes: [{ count: number }];

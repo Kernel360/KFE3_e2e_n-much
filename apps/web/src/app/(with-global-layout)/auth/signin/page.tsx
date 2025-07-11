@@ -3,11 +3,11 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import { getAuthInfo, socialSignin, upsertAuthInfo, getExistsUser, getAuthLogout } from 'src/entities/auth/supabase';
-import { AuthCard } from 'src/components/auth/AuthCard';
 import { useUserStore } from 'src/entities/auth/stores/UserStore';
-import { LoadingSpinner } from 'src/components/auth/LoadingSpinner';
 import { toast } from '@repo/ui/components/ui/sonner';
 import type { Role, Provider } from '../../../../entities/auth/types';
+import { AuthCard } from 'src/features/auth/AuthCard';
+import { LoadingSpinner } from 'src/features/auth/LoadingSpinner';
 
 export default function SigninPage() {
   const searchParams = useSearchParams();

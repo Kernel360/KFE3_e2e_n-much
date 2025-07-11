@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
-import SearchBar from '../common/SearchBar';
+import SearchBar from '../../features/search/SearchBar';
 import TabNavigation from './TabNavigation';
 import { useUserStore } from 'src/entities/auth/stores/UserStore';
 
