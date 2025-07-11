@@ -2,7 +2,7 @@ import { pretendard } from 'assets/fonts';
 
 import './globals.css';
 import { home } from 'src/entities/layout/metaData';
-import Providers from './(providers)/QueryProvider';
+import Providers from './(providers)/Providers';
 
 export const metadata = home;
 
