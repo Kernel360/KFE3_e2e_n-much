@@ -1,0 +1,45 @@
+@import 'tailwindcss';
+@import '@repo/ui/styles.css';
+@import '@repo/tailwind-config';
+
+* {
+  color-scheme: light !important;
+}
+
+html {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  color-scheme: light !important;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  color: var(--color-text-base);
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.dark {
+  --color-primary: #7fbf99;
+  --color-secondary: #f0f7f2;
+  --color-accent: #22b16d;
+  --color-text-base: #1f1f25;
+}

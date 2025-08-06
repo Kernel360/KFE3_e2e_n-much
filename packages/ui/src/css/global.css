@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+@import '@repo/tailwind-config';
+
+/* toast icon custom */
+.toaster [data-type='success'] [data-icon] {
+  color: var(--color-green) !important;
+}
+
+.toaster [data-type='error'] [data-icon] {
+  color: var(--color-red) !important;
+}
+
+.toaster [data-type='warning'] [data-icon] {
+  color: var(--color-yellow) !important;
+}
+
+.toaster [data-type='info'] [data-icon] {
+  color: var(--color-accent) !important;
+}
+
+.toaster [data-type='loading'] [data-icon] {
+  color: var(--color-warm-gray) !important;
+}
